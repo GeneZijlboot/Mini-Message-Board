@@ -7,6 +7,15 @@
         <title>Document</title>
     </head>
     <body>  
-        <p>Home page</p>
+        <h1>Home page</h1>
+        <div>
+            <!-- Loop through the messages array in server.js -->
+            <p>Array elements:</p>
+            <div>
+                <% for (let i = 0; i < messages.length; i++) { %>
+                    <p><%= messages[i].text %> - <%= messages[i].user %> (<%= messages[i].added %>)</p>
+                <% } %>
+            </div>
+        </div>
     </body>
 </html>

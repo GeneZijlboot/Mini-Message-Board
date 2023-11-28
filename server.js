@@ -2,7 +2,7 @@
 const express = require("express");
 const app = express();
 
-//messages array!
+//messages array (replacement for mongoDB atm!)
 const messages = [
     {
         text: "Hi there!",

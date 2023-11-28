@@ -10,12 +10,18 @@
         <h1>Home page</h1>
         <div>
             <!-- Loop through the messages array in server.js -->
-            <p>Array elements:</p>
+            <%= title %>
             <div>
                 <% for (let i = 0; i < messages.length; i++) { %>
                     <p><%= messages[i].text %> - <%= messages[i].user %> (<%= messages[i].added %>)</p>
                 <% } %>
             </div>
         </div>
+        <button onclick="addMessage()">Add New Message</button>
+        <script>
+            function addMessage() {
+                window.location.href = 'http://localhost:3000/new';
+            }
+        </script>
     </body>
 </html>

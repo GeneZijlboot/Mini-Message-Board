@@ -10,16 +10,14 @@
         <p>Question Form:</p>
         <div>
             <form method="POST" action="/new">
-                <label>author:</label>
-                <br></br>
-                <input></input>
-                <br></br>
-                <label>message:</label>
-                <br></br>
-                <input></input>
-                <br></br>
-                <button type="submit">Submit Message</button>
-            </form>
+                <label for="author">Author:</label>
+                <input type="text" id="author" name="author" required>
+                <br>
+                <label for="message">Message:</label>
+                <input type="text" id="message" name="message" required>
+                <br>
+                <button type="submit">Submit</button>
+              </form>              
         </div>
     </body>
 </html>

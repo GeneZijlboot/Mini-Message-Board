@@ -6,18 +6,22 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Document</title>
     </head>
-    <body>  
-        <h1>Home page</h1>
-        <div>
+    <body style="font-family: 'Lucida', Helvetica, Arial, sans-serif ;">
+        <div style="margin: 60px;">
             <!-- Loop through the messages array in server.js -->
-            <%= title %>
+            <h1><%= title %></h1>
+            <p>Welcome to the Mini Messageboard app</p>
             <div>
                 <% for (let i = 0; i < messages.length; i++) { %>
-                    <p><%= messages[i].text %> - <%= messages[i].user %> (<%= messages[i].added %>)</p>
+                    <div style="margin-bottom: 20px;">
+                        <p style="margin: 0px; font-size: 15px; font-weight: bold;"><%= messages[i].user %>:</p>
+                        <p style="margin: 0px; font-size: 13px;"><%= messages[i].text %></p>
+                        <p style="margin: 0px; font-size: 13px;"><%= messages[i].added %></p>
+                    </div>
                 <% } %>
             </div>
+            <button onclick="addMessage()">Add New Message</button>
         </div>
-        <button onclick="addMessage()">Add New Message</button>
         <script>
             function addMessage() {
                 window.location.href = 'http://localhost:3000/new';

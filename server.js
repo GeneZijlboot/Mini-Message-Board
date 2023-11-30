@@ -42,7 +42,7 @@ app.get("/new", (req, res, next) => {
 app.post("/new", (req, res, next) => {
     console.log(req.body); // Log the entire req.body object to the console
     const { author, message } = req.body;
-    messages.push({text: author, user: message, added: new Date()});
+    messages.push({user: author, text: message, added: new Date()});
     console.log("Message added:", { author, message });
     res.redirect("/");
 });

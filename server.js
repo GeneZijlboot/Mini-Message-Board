@@ -33,13 +33,14 @@ app.use(express.urlencoded({ extended: true }));
 
 app.get("/", (req, res, next) => {
     console.log("Home Page entered");
-    res.render('index', { title: "Mini Messageboard", messages: messages })
+    res.render('index', { title: "Mini Messageboard", messages: messages, baseUrl: baseUrl });
 });
 
 app.get("/new", (req, res, next) => {
     console.log("New Page entered");
-    res.render("new")
+    res.render("new", { baseUrl: baseUrl });
 });
+
 
 app.post("/new", (req, res, next) => {
     console.log(req.body);

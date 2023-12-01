@@ -2,6 +2,8 @@
 const express = require("express");
 const app = express();
 
+const port = 3000;
+
 //using a view engine to render htmls pages via express!
 app.set('view engine', 'ejs');
 
@@ -48,4 +50,6 @@ app.post("/new", (req, res, next) => {
 });
 
 //renders server on port 3000
-app.listen(3000);
+app.listen(port, () => {
+    console.log(`Server is listening on port ${port}`);
+});

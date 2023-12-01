@@ -9,7 +9,7 @@
     <body style="font-family: 'Lucida', Helvetica, Arial, sans-serif; margin: 60px;">
         <h1>New Message:</h1>
         <div>
-            <form method="POST" action="<%= baseUrl %>/new">
+            <form method="POST" action="<%= BASE_URL %>/new">
                 <label for="author">Name:</label>
                 <br>
                 <input style="margin-bottom: 20px;" type="text" id="author" name="author" required>
@@ -24,7 +24,7 @@
         <button onclick="goBack()" style="margin-top: 20px">Back to Message Board</button>
         <script>
             function goBack() {
-                window.location.href = 'http://localhost:3000/';
+                window.location.href = BASE_URL;
             }
         </script>
     </body>

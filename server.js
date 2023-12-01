@@ -9,7 +9,7 @@ const port = process.env.PORT || 3000;
 
 app.set('view engine', 'ejs');
 
-const baseUrl = process.env.BASE_URL || `http://localhost:${port}`;
+const BASE_URL = process.env.BASE_URL || `http://localhost:${port}`;
 
 const messages = [
     {
@@ -33,12 +33,12 @@ app.use(express.urlencoded({ extended: true }));
 
 app.get("/", (req, res, next) => {
     console.log("Home Page entered");
-    res.render('index', { title: "Mini Messageboard", messages: messages, baseUrl: baseUrl });
+    res.render('index', { title: "Mini Messageboard", messages: messages, BASE_URL: BASE_URL });
 });
 
 app.get("/new", (req, res, next) => {
     console.log("New Page entered");
-    res.render("new", { baseUrl: baseUrl });
+    res.render("new", { BASE_URL: BASE_URL });
 });
 
 

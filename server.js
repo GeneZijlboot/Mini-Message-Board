@@ -1,15 +1,16 @@
 const express = require("express");
 const app = express();
+const dotenv = require("dotenv"); // Add this line to require dotenv
 
-const port = process.env.PORT || 3000; // Updated to use process.env.PORT
+// Load environment variables from a .env file
+dotenv.config();
 
-// Using a view engine to render HTML pages via Express!
+const port = process.env.PORT || 3000;
+
 app.set('view engine', 'ejs');
 
-// Base URL configuration
 const baseUrl = process.env.BASE_URL || `http://localhost:${port}`;
 
-// Messages array (replacement for MongoDB atm!)
 const messages = [
     {
         text: "Hi there!",
@@ -28,30 +29,26 @@ const messages = [
     }
 ];
 
-// Middleware to parse the request body
 app.use(express.urlencoded({ extended: true }));
 
-// Route for the homepage
 app.get("/", (req, res, next) => {
     console.log("Home Page entered");
     res.render('index', { title: "Mini Messageboard", messages: messages })
 });
 
-// Route for the new message
 app.get("/new", (req, res, next) => {
     console.log("New Page entered");
     res.render("new")
 });
 
 app.post("/new", (req, res, next) => {
-    console.log(req.body); // Log the entire req.body object to the console
+    console.log(req.body);
     const { author, message } = req.body;
-    messages.push({user: author, text: message, added: new Date()});
+    messages.push({ user: author, text: message, added: new Date() });
     console.log("Message added:", { author, message });
     res.redirect("/");
 });
 
-// Renders server on the specified port
 app.listen(port, () => {
     console.log(`Server is listening on port ${port}`);
 });
